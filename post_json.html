@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("button").click(function () {
+                    var book = {
+                         title: 'PHP Programming',
+                         price: 55.7
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: 'spi/books',
+                        data: JSON.stringify(book),
+                        success: function (data) {
+                                    alert("Data: " + data.id);
+                                },
+                        contentType: "application/json",
+                        dataType: 'json'
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <button>Send an HTTP POST request to a page and get the result back</button>
+    </body>
+</html>
